@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ============================================
+         ESSENTIAL META TAGS - Character Set & Viewport
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- ============================================
+         SEO META TAGS - Core Page Information
+         ============================================ -->
+    <title>Olawale | Motivational Speaker, Author & Development Consultant – Ibadan, Nigeria</title>
+    <meta name="description" content="Book Olawale for inspiring keynote speeches, leadership training & development consulting in Ibadan, Nigeria. Award-winning author & NGO founder transforming lives.">
+    <meta name="keywords" content="motivational speaker, author, development consultant, Ibadan Nigeria, leadership training, public speaking, keynote speaker, NGO, youth empowerment, corporate training, life coach, book author">
+    <meta name="author" content="Olawale">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.olawalebrand.com">
+    
+    <!-- ============================================
+         OPEN GRAPH TAGS - Social Media Optimization
+         ============================================ -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Olawale | Motivational Speaker, Author & Development Consultant">
+    <meta property="og:description" content="Book Olawale for inspiring keynote speeches, leadership training & development consulting in Ibadan, Nigeria. Transforming lives through powerful speaking and strategic consulting.">
+    <meta property="og:image" content="https://www.olawalebrand.com/assets/images/olawale-og-image.jpg">
+    <meta property="og:url" content="https://www.olawalebrand.com">
+    <meta property="og:site_name" content="Olawale Brand">
+    <meta property="og:locale" content="en_NG">
+    
+    <!-- ============================================
+         TWITTER CARD TAGS - Twitter Optimization
+         ============================================ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Olawale | Motivational Speaker, Author & Development Consultant">
+    <meta name="twitter:description" content="Book Olawale for inspiring keynote speeches, leadership training & development consulting in Ibadan, Nigeria.">
+    <meta name="twitter:image" content="https://www.olawalebrand.com/assets/images/olawale-twitter-card.jpg">
+    <meta name="twitter:creator" content="@olawalebrand">
+    
+    <!-- ============================================
+         FAVICON - Browser Tab Icon
+         ============================================ -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- ============================================
+         GOOGLE FONTS - Typography Import
+         Poppins 700 (Bold) for headings
+         Lato 400 (Regular) for body text
+         ============================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Lato:wght@400&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/icon" href="./assets/images/orkut.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    
+    <style>
+         .hero {
+            position: relative;
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0B132B 0%, #1a2850 50%, #0B132B 100%);
+            overflow: hidden;
+            padding: 4rem 1.5rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(245, 183, 0, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatGlow 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(245, 183, 0, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatGlow 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatGlow {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(30px, -40px) scale(1.1);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: heroFadeUp 1.2s ease-out 0.3s forwards;
+        }
+
+        @keyframes heroFadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: #F9F9F9;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .hero-gold {
+            color: #F5B700;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            color: rgba(249, 249, 249, 0.9);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.2rem 3rem;
+            background: #F5B700;
+            color: #0B132B;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(245, 183, 0, 0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(245, 183, 0, 0.5);
+            background: #d9a100;
+        }
+
+        .hero-cta i {
+            font-size: 1.3rem;
+            transition: transform 0.4s ease;
+        }
+
+        .hero-cta:hover i {
+            transform: translateY(3px);
+        }
+
+        /* Main Contact Section */
+        .contact-section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .section-header.visible {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: #0B132B;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-header .underline {
+            width: 100px;
+            height: 4px;
+            background: #F5B700;
+            margin: 1rem auto 1.5rem;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #6C757D;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Form Container */
+        .form-wrapper {
+            max-width: 800px;
+            margin: 0 auto 5rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .form-wrapper.visible {
+            animation: fadeUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .contact-form {
+            background: #FFFFFF;
+            padding: 3.5rem;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(11, 19, 43, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #F5B700 0%, #d9a100 100%);
+        }
+
+        .form-title {
+            font-size: 2rem;
+            color: #0B132B;
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: #6C757D;
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            color: #0B132B;
+            font-weight: 600;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group label span {
+            color: #F5B700;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid #E9ECEF;
+            border-radius: 12px;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            color: #0B132B;
+            background: #F9F9F9;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #F5B700;
+            background: #FFFFFF;
+            box-shadow: 0 0 0 4px rgba(245, 183, 0, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 160px;
+            resize: vertical;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #dc3545;
+            background: #fff5f5;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+            font-weight: 500;
+        }
+
+        .form-group.error .error-message {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.3rem;
+            background: #F5B700;
+            color: #0B132B;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            box-shadow: 0 8px 25px rgba(245, 183, 0, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: #d9a100;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(245, 183, 0, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .submit-btn i {
+            font-size: 1.4rem;
+        }
+
+        .form-feedback {
+            margin-top: 1.5rem;
+            padding: 1.2rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+            animation: slideDown 0.4s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-feedback.success {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+            display: block;
+        }
+
+        .form-feedback.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+            display: block;
+        }
+
+        /* Contact Info Cards */
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .contact-info-grid.visible {
+            animation: fadeUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .info-card {
+            background: #FFFFFF;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(11, 19, 43, 0.06);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #F5B700;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(11, 19, 43, 0.12);
+        }
+
+        .info-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .info-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #F5B700 0%, #d9a100 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            transition: all 0.4s ease;
+        }
+
+        .info-card:hover .info-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(245, 183, 0, 0.4);
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            color: #0B132B;
+            margin-bottom: 0.75rem;
+        }
+
+        .info-card p {
+            color: #6C757D;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .info-card a {
+            color: #F5B700;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .info-card a:hover {
+            color: #d9a100;
+            transform: translateX(5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 65vh;
+                padding: 3rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: -1px;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero-cta {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .contact-section {
+                padding: 4rem 5%;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .section-header p {
+                font-size: 1.05rem;
+            }
+
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-title {
+                font-size: 1.6rem;
+            }
+
+            .form-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .form-wrapper {
+                margin-bottom: 3rem;
+            }
+
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.9rem 1rem;
+            }
+
+            .submit-btn {
+                padding: 1.1rem;
+                font-size: 1.05rem;
+            }
+        }
+
+
+        .faq-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .faq-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0B132B;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .faq-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #F5B700, #F5B700);
+            border-radius: 2px;
+        }
+
+        .faq-intro {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 30px auto 0;
+            line-height: 1.8;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(11, 19, 43, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(11, 19, 43, 0.12);
+            border-left-color: #F5B700;
+        }
+
+        .faq-item.active {
+            border-left-color: #F5B700;
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #FAFAFA;
+        }
+
+        .faq-question h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #0B132B;
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .faq-icon {
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+            background-color: #F5B700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s ease, background-color 0.3s ease;
+        }
+
+        .faq-icon::after {
+            content: '+';
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            background-color: #0B132B;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 30px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 600px;
+            padding: 0 30px 25px 30px;
+        }
+
+        .faq-answer p {
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .faq-answer strong {
+            color: #0B132B;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #0B132B 0%, #1a2341 100%);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(11, 19, 43, 0.15);
+        }
+
+        .cta-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            color: #F9F9F9;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            color: #F9F9F9;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #F5B700;
+            color: #0B132B;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 183, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(245, 183, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 60px 15px;
+            }
+
+            .faq-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .faq-intro {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            .faq-question {
+                padding: 20px 20px;
+            }
+
+            .faq-question h3 {
+                font-size: 1.05rem;
+            }
+
+            .faq-answer {
+                padding: 0 20px;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0 20px 20px 20px;
+            }
+
+            .faq-icon {
+                width: 28px;
+                height: 28px;
+                min-width: 28px;
+            }
+
+            .cta-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faq-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .faq-question h3 {
+                font-size: 0.95rem;
+            }
+
+            .faq-answer p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+    <header class="header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
+            <!-- Logo/Brand -->
+            <a href="./index.html" class="logo" aria-label="Olawale - Home">Olawale</a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Navigation Menu -->
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="./index.html" class="nav-link" aria-current="page">Home</a></li>
+                <li><a href="./about.html" class="nav-link">About</a></li>
+                <li><a href="./featuredwork.html" class="nav-link">Services</a></li>
+                <li><a href="./contact.html" class="nav-link">Contact</a></li>
+                <li><a href="./ngo.html" class="nav-link">NGO</a></li>
+                <li><a href="https://wa.me/2348012345678" class="cta-button" aria-label="Book Olawale for speaking engagements">Book Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+<section class="hero">
+        <div class="hero-content">
+            <h1>
+                Let's Work Together
+                <span class="hero-gold">Transform Your Future</span>
+            </h1>
+            <p>Ready to create something transformational? From personal growth sessions to corporate workshops — we're just a message away.</p>
+            <a href="#contact" class="hero-cta">
+                <span>Get in Touch</span>
+                <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="contact-section" id="contact"> 
+        <div class="section-header">
+            <h2>Start the Conversation</h2>
+            <div class="underline"></div>
+            <p>Whether you need a motivational speaker, workshop facilitator, or leadership consultant — let's discuss how we can create impact together.</p>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="form-wrapper" id="contact-form">
+            <form class="contact-form" id="whatsappForm">
+                <h3 class="form-title">Send Us a Message</h3>
+                <p class="form-subtitle">Fill out the form below and we'll reach out via WhatsApp to discuss your needs.</p>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span>*</span></label>
+                        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                        <span class="error-message"><i class="fas fa-exclamation-circle"></i> Please enter your full name</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span>*</span></label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        <span class="error-message"><i class="fas fa-exclamation-circle"></i> Please enter a valid email</span>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="subject">Subject <span>*</span></label>
+                        <input type="text" id="subject" name="subject" placeholder="e.g., Workshop Booking, Speaking Engagement" required>
+                        <span class="error-message"><i class="fas fa-exclamation-circle"></i> Please enter a subject</span>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="message">Your Message <span>*</span></label>
+                        <textarea id="message" name="message" placeholder="Tell us about your event, organization, or how we can help..." required></textarea>
+                        <span class="error-message"><i class="fas fa-exclamation-circle"></i> Please enter your message</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Send Message via WhatsApp</span>
+                </button>
+
+                <div class="form-feedback" id="formFeedback"></div>
+            </form>
+        </div>
+
+        <!-- Contact Info Cards -->
+        <div class="contact-info-grid">
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Our Location</h3>
+                <p>Based in Ibadan, Nigeria</p>
+                <a href="https://maps.app.goo.gl/JSQogq5Cithx2gdv9">Serving Clients Nationwide</a>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>WhatsApp</h3>
+                <p>Quick response for urgent inquiries</p>
+                <a href="https://wa.me/2348012345678" target="_blank">+234 801 234 5678</a>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Us</h3>
+                <p>For detailed proposals and bookings</p>
+                <a href="mailto:info@olawalespeaks.com">info@olawalespeaks.com</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+<section class="faq-section" id="faq">
+        <div class="faq-header">
+            <h2>Frequently Asked Questions</h2>
+            <p class="faq-intro">
+                Have questions about working with Olawale? Find answers to the most common inquiries about booking, services, and collaboration opportunities. If you need more information, feel free to reach out directly.
+            </p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What services does Olawale offer?</h3>
+                    <div class="faq-icon"></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Olawale provides a comprehensive range of transformational services designed to inspire and empower individuals and organizations. These include <strong>motivational speaking engagements</strong> for conferences and events, <strong>personal development training sessions</strong> that unlock human potential, <strong>corporate workshops</strong> focused on leadership and productivity, <strong>youth empowerment programs</strong> that shape the next generation of leaders, and <strong>organizational capacity building</strong> for NGOs and community groups. Each service is crafted to deliver measurable impact and lasting transformation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I book Olawale for international or virtual events?</h3>
+                    <div class="faq-icon"></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! Olawale works with clients across Nigeria, Africa, and internationally. Whether your event is <strong>in-person or virtual</strong>, he delivers the same high-energy, transformative experience. His team is equipped to handle both physical engagements and online sessions through platforms like Zoom, Google Meet, and Microsoft Teams. Distance is no barrier to inspiration—Olawale brings his powerful message to audiences wherever they are, creating meaningful connections that transcend geographical boundaries.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Does Olawale work with NGOs and community organizations?</h3>
+                    <div class="faq-icon"></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, working with NGOs and community organizations is at the heart of Olawale's mission. He is deeply committed to <strong>social impact and grassroots transformation</strong>. Through his own NGO initiatives and partnerships, he has empowered countless communities with capacity-building workshops, leadership training, and motivational programs. Olawale understands the unique challenges faced by non-profit organizations and designs his sessions to strengthen teams, clarify vision, and amplify impact. If your organization is dedicated to making a difference, Olawale is the partner you need.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How do I book Olawale for an event or training session?</h3>
+                    <div class="faq-icon"></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Booking Olawale is simple and straightforward. You can reach out directly through the <strong>Contact page</strong> on this website, where you'll find a detailed form to share your event details and requirements. Alternatively, you can send a <strong>WhatsApp message</strong> or email for faster communication. Once you make contact, Olawale's team will respond promptly to discuss your needs, provide a customized proposal, and finalize all logistics. Whether it's a corporate conference, school program, or community event, the booking process is designed to be seamless and professional.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can Olawale customize sessions for my company or school?</h3>
+                    <div class="faq-icon"></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Definitely! <strong>Customization is a core strength</strong> of Olawale's approach. Every audience is unique, and every organization faces distinct challenges. That's why Olawale takes the time to understand your specific goals, context, and audience demographics before crafting a session. Whether you need a motivational keynote for employees, a leadership workshop for managers, a productivity bootcamp for students, or a youth empowerment program for your community, Olawale designs content that resonates deeply and drives real results. Your success is his priority.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What is Olawale's speaking style and approach?</h3>
+                    <div class="faq-icon"></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Olawale's speaking style is <strong>dynamic, authentic, and deeply engaging</strong>. He combines powerful storytelling with practical insights, ensuring that audiences don't just feel inspired—they leave with actionable strategies they can implement immediately. His approach is interactive and relational; he connects with people on a personal level, creating an atmosphere where transformation feels possible. Whether addressing a boardroom of executives or a hall full of young people, Olawale's ability to adapt his message while maintaining authenticity sets him apart as a world-class speaker.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What types of events is Olawale available for?</h3>
+                    <div class="faq-icon"></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Olawale is available for a wide variety of events including <strong>corporate conferences, leadership summits, educational institutions' programs, youth conferences, NGO capacity-building workshops, church and faith-based gatherings, product launches, awards ceremonies, and community development forums</strong>. No event is too large or too small. Whether you're hosting an intimate team retreat or a national conference with thousands of attendees, Olawale brings the same level of excellence, preparation, and passion. His versatility makes him the ideal speaker for virtually any platform.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How far in advance should I book Olawale?</h3>
+                    <div class="faq-icon"></div>
+                </div>
+                <div class="faq-answer">
+                    <p>For the best availability and adequate preparation time, it's recommended to book Olawale <strong>at least 4-6 weeks in advance</strong>. This allows sufficient time for needs assessment, content customization, and logistical coordination. However, Olawale understands that opportunities sometimes arise on shorter notice. If you have an urgent need, don't hesitate to reach out—his team will do everything possible to accommodate your timeline. Early booking ensures you get your preferred date and allows for the most impactful session preparation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Does Olawale offer follow-up support after sessions?</h3>
+                    <div class="faq-icon"></div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Olawale believes that <strong>lasting transformation requires more than a one-time event</strong>. Depending on your package and needs, follow-up support can include post-session resources, implementation guides, email check-ins, and access to exclusive content. For organizations seeking ongoing development, Olawale offers coaching retainers and quarterly training programs that ensure continuous growth. His commitment to your success doesn't end when the session concludes—it's just the beginning of a transformative journey.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What makes Olawale different from other motivational speakers?</h3>
+                    <div class="faq-icon"></div>
+                </div>
+                <div class="faq-answer">
+                    <p>What sets Olawale apart is his <strong>authentic combination of inspiration and implementation</strong>. He doesn't just motivate—he equips. His messages are rooted in real-life experience, backed by proven frameworks, and delivered with genuine passion. As both an author and development consultant, he brings depth and substance that goes beyond surface-level motivation. His commitment to social impact through NGO work demonstrates that he lives the principles he teaches. When you book Olawale, you're not just getting a speaker—you're partnering with a transformation catalyst who is genuinely invested in your success.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3>Still Have Questions?</h3>
+            <p>Let's discuss how Olawale can bring transformation to your next event or organization.</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+
+<footer class="olawale-site-footer-master-container">
+        <div class="olawale-footer-inner-wrapper-grid">
+           
+            <div class="olawale-footer-brand-mission-column">
+                <div class="olawale-footer-logo-container">
+                    <div class="olawale-footer-logo-symbol" aria-label="Olawale Logo">O</div>
+                    <span class="olawale-footer-brand-name-text">Olawale</span>
+                </div>
+                <p class="olawale-footer-mission-tagline-text">
+                    Empowering people and organizations to discover purpose, unlock potential, and create lasting impact through transformative leadership and mindset development.
+                </p>
+            </div>
+
+           
+            <nav class="olawale-footer-navigation-links-column" aria-label="Footer navigation">
+                <h3 class="olawale-footer-column-heading-title">Quick Links</h3>
+                <ul class="olawale-footer-nav-links-list">
+                    <li class="olawale-footer-nav-link-item">
+                        <a href="./index.html" class="olawale-footer-nav-anchor-link">Home</a>
+                    </li>
+                    <li class="olawale-footer-nav-link-item">
+                        <a href="./about.html" class="olawale-footer-nav-anchor-link">About</a>
+                    </li>
+                    <li class="olawale-footer-nav-link-item">
+                        <a href="./featuredwork.html" class="olawale-footer-nav-anchor-link">Services</a>
+                    </li>
+                    <li class="olawale-footer-nav-link-item">
+                        <a href="#faq" class="olawale-footer-nav-anchor-link">FAQ</a>
+                    </li>
+                    <li class="olawale-footer-nav-link-item">
+                        <a href="./ngo.html" class="olawale-footer-nav-anchor-link">NGO</a>
+                    </li>
+                    <li class="olawale-footer-nav-link-item">
+                        <a href="./contact.html#testimonials" class="olawale-footer-nav-anchor-link">Testimonials</a>
+                    </li>
+                    <li class="olawale-footer-nav-link-item">
+                        <a href="./contact.html" class="olawale-footer-nav-anchor-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Column 3: Contact & Social -->
+            <div class="olawale-footer-contact-social-column">
+                <div class="olawale-footer-contact-info-block">
+                    <h3 class="olawale-footer-column-heading-title">Get In Touch</h3>
+                    <div class="olawale-footer-contact-item-row">
+                        <span class="olawale-footer-contact-icon-wrapper" aria-hidden="true">✉</span>
+                        <a href="mailto:info@olawalecoaching.com" class="olawale-footer-contact-link-element">
+                            info@olawalecoaching.com
+                        </a>
+                    </div>
+                    <div class="olawale-footer-contact-item-row">
+                        <span class="olawale-footer-contact-icon-wrapper" aria-hidden="true">📞</span>
+                        <a href="tel:+2348123456789" class="olawale-footer-contact-link-element">
+                            +234 812 345 6789
+                        </a>
+                    </div>
+                </div>
+
+                <div class="olawale-footer-social-media-container">
+                    <h3 class="olawale-footer-column-heading-title">Follow Us</h3>
+                    <div class="olawale-footer-social-icons-row">
+                        <a href="https://linkedin.com" 
+                           class="olawale-footer-social-icon-link" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           aria-label="Visit our LinkedIn profile">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com" 
+                           class="olawale-footer-social-icon-link" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           aria-label="Visit our Instagram profile">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://youtube.com" 
+                           class="olawale-footer-social-icon-link" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           aria-label="Visit our YouTube channel">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="olawale-footer-bottom-bar-section">
+            <p class="olawale-footer-copyright-text-element">
+                © 2025 Olawale. All Rights Reserved.
+            </p>
+            <button class="olawale-footer-back-to-top-button" id="olawaleBackToTopBtnElement" aria-label="Scroll back to top">
+                Back to Top
+                <span class="olawale-footer-arrow-up-icon" aria-hidden="true">↑</span>
+            </button>
+        </div>
+    </footer>
+
+
+    <script>
+
+        // Mobile menu toggle functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Update ARIA attribute for accessibility
+            const isExpanded = this.classList.contains('active');
+            this.setAttribute('aria-expanded', isExpanded);
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = isExpanded ? 'hidden' : '';
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link, .cta-button');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Add shadow to header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Handle active navigation link based on scroll position
+        const sections = document.querySelectorAll('section[id]');
+        
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                const correspondingLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        link.removeAttribute('aria-current');
+                    });
+                    if (correspondingLink) {
+                        correspondingLink.classList.add('active');
+                        correspondingLink.setAttribute('aria-current', 'page');
+                    }
+                }
+            });
+        });
+    
+
+
+
+
+
+
+
+
+        
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.section-header, .form-wrapper, .contact-info-grid').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form validation and WhatsApp submission
+        const form = document.getElementById('whatsappForm');
+        const feedback = document.getElementById('formFeedback');
+
+        // Email validation regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Validate individual field
+        function validateField(field) {
+            const formGroup = field.closest('.form-group');
+            const value = field.value.trim();
+            let isValid = true;
+
+            if (field.type === 'email') {
+                isValid = emailRegex.test(value);
+            } else {
+                isValid = value !== '';
+            }
+
+            if (isValid) {
+                formGroup.classList.remove('error');
+            } else {
+                formGroup.classList.add('error');
+            }
+
+            return isValid;
+        }
+
+        // Real-time validation
+        const formFields = form.querySelectorAll('input, textarea');
+        formFields.forEach(field => {
+            field.addEventListener('blur', () => validateField(field));
+            field.addEventListener('input', () => {
+                if (field.closest('.form-group').classList.contains('error')) {
+                    validateField(field);
+                }
+            });
+        });
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Validate all fields
+            let isFormValid = true;
+            formFields.forEach(field => {
+                if (!validateField(field)) {
+                    isFormValid = false;
+                }
+            });
+
+            if (!isFormValid) {
+                feedback.className = 'form-feedback error';
+                feedback.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please fill in all fields correctly.';
+                
+                // Scroll to first error
+                const firstError = form.querySelector('.form-group.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
+
+            // WhatsApp number (replace with actual number)
+            const whatsappNumber = '2348012345678';
+
+            // Create personalized WhatsApp message
+            const whatsappMessage = `Hello Olawale! 👋
+
+I'm reaching out from your website.
+
+*Name:* ${fullName}
+*Email:* ${email}
+
+*Subject:* ${subject}
+
+*Message:*
+${message}
+
+---
+Looking forward to hearing from you!`;
+
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // Show success message
+            feedback.className = 'form-feedback success';
+            feedback.innerHTML = '<i class="fas fa-check-circle"></i> Message ready! Opening WhatsApp...';
+
+            // Open WhatsApp after short delay
+            setTimeout(() => {
+                window.open(whatsappURL, '_blank');
+            }, 1000);
+
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                form.reset();
+                feedback.style.display = 'none';
+                formFields.forEach(field => {
+                    field.closest('.form-group').classList.remove('error');
+                });
+            }, 3500);
+        });
+
+        // Smooth scroll for hero CTA
+        document.querySelector('.hero-cta').addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offset = 80;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+
+
+
+
+
+
+
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll animation on load
+        const observers = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        faqItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observers.observe(item);
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+        (function() {
+            const olawaleBackToTopJS = document.getElementById('olawaleBackToTopBtnElement');
+            
+            if (olawaleBackToTopJS) {
+                olawaleBackToTopJS.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+
+                // Optional: Show/hide button based on scroll position
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        olawaleBackToTopJS.style.opacity = '1';
+                        olawaleBackToTopJS.style.pointerEvents = 'auto';
+                    } else {
+                        olawaleBackToTopJS.style.opacity = '0.7';
+                        olawaleBackToTopJS.style.pointerEvents = 'auto';
+                    }
+                });
+            }
+        })();
+    </script>
+
+
+    </body>
+    </html>
