@@ -2770,11 +2770,16 @@
             color: var(--olawale-navy-primary);
         }
 
+        .olawale-about-gold-highlight {
+            color: var(--olawale-gold-accent);
+        }
+
         .olawale-about-team-desc-subheading {
             text-align: center;
             font-size: 1.2rem;
             color: #666;
             margin-bottom: 4rem;
+            line-height: 1.8;
         }
 
         .olawale-about-team-members-grid {
@@ -2789,7 +2794,6 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(11, 19, 43, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
         }
 
         .olawale-about-team-member-profile-box:hover {
@@ -2798,48 +2802,44 @@
         }
 
         .olawale-about-team-member-avatar {
-  width: 100%;
-  height: 320px;
-  background: linear-gradient(135deg, var(--olawale-navy-primary) 0%, var(--olawale-gold-accent) 100%);
-  position: relative;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, var(--olawale-navy-primary) 0%, var(--olawale-gold-accent) 100%);
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
 
-/* Make the image fit beautifully */
-.olawale-about-team-member-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;          /* fills nicely */
-  object-position: center;    /* centers focus */
-  display: block;
-  transition: transform 0.5s ease;
-}
+        .olawale-about-team-member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.5s ease;
+        }
 
-/* Add a subtle overlay for better text contrast */
-.olawale-about-team-member-avatar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(11, 19, 43, 0.3); /* dark overlay */
-  pointer-events: none;
-}
+        .olawale-about-team-member-avatar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(11, 19, 43, 0.3);
+            pointer-events: none;
+        }
 
-/* Hover animation (lift + zoom) */
-.olawale-about-team-member-avatar:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
-}
+        .olawale-about-team-member-avatar:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+        }
 
-.olawale-about-team-member-avatar:hover img {
-  transform: scale(1.05);
-}
-
+        .olawale-about-team-member-avatar:hover img {
+            transform: scale(1.05);
+        }
 
         .olawale-about-team-member-details {
             padding: 2rem;
@@ -2864,6 +2864,97 @@
             color: #666;
             font-style: italic;
             line-height: 1.6;
+        }
+
+        /* Mobile toggle functionality */
+        .olawale-team-toggle-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .olawale-team-toggle-btn {
+            display: none;
+            background: var(--olawale-gold-accent);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .olawale-team-toggle-btn:hover {
+            background: #c29d2f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .olawale-team-toggle-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .olawale-about-team-showcase-area {
+                padding: 4rem 1.5rem;
+            }
+
+            .olawale-about-team-desc-subheading {
+                font-size: 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .olawale-about-team-members-grid {
+                gap: 2rem;
+            }
+
+            .olawale-team-toggle-btn {
+                display: block;
+            }
+
+            /* Hide additional members on mobile by default */
+            .olawale-about-team-member-profile-box:nth-child(n+4) {
+                display: none;
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            /* Show all when expanded */
+            .team-expanded .olawale-about-team-member-profile-box:nth-child(n+4) {
+                display: block;
+                animation: fadeInUp 0.5s ease forwards;
+            }
+
+            /* Stagger animation for each card */
+            .team-expanded .olawale-about-team-member-profile-box:nth-child(4) {
+                animation-delay: 0.1s;
+            }
+            .team-expanded .olawale-about-team-member-profile-box:nth-child(5) {
+                animation-delay: 0.2s;
+            }
+            .team-expanded .olawale-about-team-member-profile-box:nth-child(6) {
+                animation-delay: 0.3s;
+            }
+            .team-expanded .olawale-about-team-member-profile-box:nth-child(7) {
+                animation-delay: 0.4s;
+            }
+            .team-expanded .olawale-about-team-member-profile-box:nth-child(8) {
+                animation-delay: 0.5s;
+            }
+            .team-expanded .olawale-about-team-member-profile-box:nth-child(9) {
+                animation-delay: 0.6s;
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Why Work With Us */
