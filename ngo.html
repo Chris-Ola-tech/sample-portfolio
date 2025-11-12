@@ -577,6 +577,446 @@
                 font-size: 2rem;
             }
         }
+
+
+
+        .sponsorship-section {
+            position: relative;
+            width: 100%;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--olawale-navy-primary) 0%, var(--olawale-navy-light) 100%);
+            overflow: hidden;
+        }
+
+        /* Decorative background elements */
+        .sponsorship-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .sponsorship-section::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -15%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* ========================================
+           CONTAINER & LAYOUT
+        ======================================== */
+        .sponsorship-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 2;
+        }
+
+        /* ========================================
+           SECTION HEADER
+        ======================================== */
+        .sponsorship-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--olawale-navy-primary);
+            background: var(--olawale-gold-accent);
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .sponsorship-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .sponsorship-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           MAIN CONTENT CARD
+        ======================================== */
+        .sponsorship-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 3.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        /* ========================================
+           SPONSOR INFO SECTION
+        ======================================== */
+        .sponsor-info {
+            text-align: center;
+            padding-bottom: 2.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 2.5rem;
+        }
+
+        .sponsor-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .sponsor-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--olawale-gold-accent);
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .sponsor-name:hover {
+            transform: scale(1.02);
+            text-shadow: 0 4px 20px rgba(245, 183, 0, 0.3);
+        }
+
+        .sponsor-acronym {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        /* ========================================
+           BANK DETAILS SECTION
+        ======================================== */
+        .bank-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .detail-item {
+            background: linear-gradient(135deg, #ffffff 0%, var(--olawale-white-bg) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--olawale-gold-accent);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .detail-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(245, 183, 0, 0.2);
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+        }
+
+        .detail-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--olawale-gold-accent) 0%, var(--olawale-gold-dark) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .detail-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--olawale-navy-primary);
+        }
+
+        .detail-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            word-break: break-word;
+        }
+
+        /* ========================================
+           ACCOUNT NUMBER - COPY FEATURE
+        ======================================== */
+        .account-number-wrapper {
+            position: relative;
+        }
+
+        .account-number {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .copy-button {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .copy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .copy-button:active {
+            transform: translateY(0);
+        }
+
+        .copy-button svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Copy success feedback */
+        .copy-success {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: #10b981;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .copy-success.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========================================
+           SUPPORT MESSAGE
+        ======================================== */
+        .support-message {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+            border-radius: 12px;
+            border: 2px dashed #667eea;
+        }
+
+        .support-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .support-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: #ffffff;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(102, 126, 234, 0);
+            }
+        }
+
+        .support-text {
+            font-size: 1.125rem;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        .support-text strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* ========================================
+           ANIMATIONS
+        ======================================== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        
+        /* Tablets and below (768px) */
+        @media (max-width: 768px) {
+            .sponsorship-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .sponsorship-title {
+                font-size: 2.25rem;
+            }
+
+            .sponsorship-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .sponsorship-card {
+                padding: 2.5rem 2rem;
+            }
+
+            .sponsor-name {
+                font-size: 2rem;
+            }
+
+            .bank-details {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .account-number {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .copy-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Mobile devices (480px) */
+        @media (max-width: 480px) {
+            .sponsorship-section {
+                padding: 3rem 1rem;
+            }
+
+            .sponsorship-header {
+                margin-bottom: 3rem;
+            }
+
+            .sponsorship-title {
+                font-size: 1.875rem;
+            }
+
+            .sponsorship-subtitle {
+                font-size: 1rem;
+            }
+
+            .sponsorship-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .sponsor-name {
+                font-size: 1.75rem;
+            }
+
+            .detail-item {
+                padding: 1.5rem;
+            }
+
+            .detail-value {
+                font-size: 1.125rem;
+            }
+
+            .support-message {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ========================================
+           ACCESSIBILITY IMPROVEMENTS
+        ======================================== */
+        
+        /* Focus states for keyboard navigation */
+        .copy-button:focus {
+            outline: 3px solid #fbbf24;
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
         </style>
        
 </head>
@@ -707,6 +1147,102 @@
             <a href="https://wa.me/2330540336116" class="transcendence-portal-link">Become a Partner</a>
         </div>
     </section>
+
+
+<section class="sponsorship-section" id="sponsorship" role="region" aria-labelledby="sponsorship-heading">
+        <div class="sponsorship-container">
+            
+            <!-- Section Header -->
+            <header class="sponsorship-header">
+                <span class="section-badge" aria-label="Section category">Partnership</span>
+                <h2 class="sponsorship-title" id="sponsorship-heading">Sponsorship</h2>
+                <p class="sponsorship-subtitle">
+                    Your generous support helps us make a lasting impact. Partner with us through our trusted sponsorship program.
+                </p>
+            </header>
+
+            <!-- Main Content Card -->
+            <div class="sponsorship-card">
+                
+                <!-- Sponsor Information -->
+                <div class="sponsor-info">
+                    <p class="sponsor-label">Official Sponsor</p>
+                    <h3 class="sponsor-name">Coach International</h3>
+                    <p class="sponsor-acronym">(TSAQIF)</p>
+                </div>
+
+                <!-- Bank Details Grid -->
+                <div class="bank-details">
+                    
+                    <!-- Bank Name -->
+                    <article class="detail-item">
+                        <div class="detail-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                            </svg>
+                        </div>
+                        <p class="detail-label">Bank Name</p>
+                        <p class="detail-value">Fidelity Bank</p>
+                    </article>
+
+                    <!-- Branch Location -->
+                    <article class="detail-item">
+                        <div class="detail-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <p class="detail-label">Branch Location</p>
+                        <p class="detail-value">MADINA Branch, Ghana</p>
+                    </article>
+
+                    <!-- Account Number with Copy Feature -->
+                    <article class="detail-item">
+                        <div class="detail-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                            </svg>
+                        </div>
+                        <p class="detail-label">Account Number</p>
+                        <div class="account-number-wrapper">
+                            <div class="account-number">
+                                <p class="detail-value" id="accountNumber">2400452651310</p>
+                                <button 
+                                    class="copy-button" 
+                                    id="copyButton" 
+                                    aria-label="Copy account number to clipboard"
+                                    title="Click to copy">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <span class="copy-success" id="copySuccess" role="status" aria-live="polite">Copied!</span>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Support Message -->
+                <div class="support-message">
+                    <div class="support-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <p class="support-text">
+                        Thank you for considering a sponsorship with <strong>Coach International (TSAQIF)</strong>. 
+                        Your contribution directly supports our mission and creates meaningful change in communities.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    
 
     <!-- Gallery Section -->
     <section class="chronicle-tapestry-sanctuary">
@@ -846,7 +1382,7 @@
                     <div class="olawale-footer-contact-item-row">
                         <span class="olawale-footer-contact-icon-wrapper" aria-hidden="true">📞</span>
                         <a href="tel:+2330540336116" class="olawale-footer-contact-link-element">
-                            +233 054 033 6116
+                            +233 540 336 116
                         </a>
                     </div>
                 </div>
@@ -864,7 +1400,7 @@
                             </svg>
 
                         </a>
-                        <a href="https://instagram.com" 
+                        <a href="https://www.instagram.com/coach_international_gh?igsh=MTdqZjM0a2hzMmRqYw==" 
                            class="olawale-footer-social-icon-link" 
                            target="_blank" 
                            rel="noopener noreferrer"
@@ -994,6 +1530,96 @@
                 });
             }
         })();
+
+
+
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Get DOM elements
+            const copyButton = document.getElementById('copyButton');
+            const accountNumber = document.getElementById('accountNumber');
+            const copySuccess = document.getElementById('copySuccess');
+            
+            // Copy to clipboard function
+            copyButton.addEventListener('click', function() {
+                // Get the account number text
+                const textToCopy = accountNumber.textContent;
+                
+                // Modern clipboard API (preferred method)
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(textToCopy)
+                        .then(function() {
+                            // Success - show feedback
+                            showCopySuccess();
+                        })
+                        .catch(function(err) {
+                            // Fallback if modern API fails
+                            console.error('Failed to copy:', err);
+                            fallbackCopy(textToCopy);
+                        });
+                } else {
+                    // Fallback for older browsers
+                    fallbackCopy(textToCopy);
+                }
+            });
+            
+            // Show success message
+            function showCopySuccess() {
+                copySuccess.classList.add('show');
+                
+                // Change button text temporarily
+                const originalHTML = copyButton.innerHTML;
+                copyButton.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    Copied!
+                `;
+                
+                // Reset after 2 seconds
+                setTimeout(function() {
+                    copySuccess.classList.remove('show');
+                    copyButton.innerHTML = originalHTML;
+                }, 2000);
+            }
+            
+            // Fallback copy method for older browsers
+            function fallbackCopy(text) {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                textArea.style.top = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        showCopySuccess();
+                    }
+                } catch (err) {
+                    console.error('Fallback copy failed:', err);
+                    alert('Failed to copy. Please copy manually: ' + text);
+                }
+                
+                document.body.removeChild(textArea);
+            }
+            
+            // Add keyboard accessibility (Enter or Space to activate)
+            copyButton.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    copyButton.click();
+                }
+            });
+            
+        });
 </script>
     <script src="./script.js"></script>
     </body>
