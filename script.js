@@ -1130,3 +1130,232 @@
                 document.querySelector('.olawale-about-team-showcase-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
+
+
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // ========================================
+            // CONFIGURATION
+            // ========================================
+            const POPUP_DELAY = 30000; // 30 seconds in milliseconds
+            const COOKIE_NAME = 'emailPopupShown';
+            const COOKIE_DAYS = 7; // Don't show popup again for 7 days after closing
+            
+            // ========================================
+            // GET DOM ELEMENTS
+            // ========================================
+            const popup = document.getElementById('emailPopup');
+            const closeButton = document.getElementById('closePopup');
+            const form = document.getElementById('mc-embedded-subscribe-form');
+            const emailInput = document.getElementById('mce-EMAIL');
+            const errorMessage = document.getElementById('email-error');
+            const submitButton = document.getElementById('mc-submit');
+            const formSection = document.getElementById('formSection');
+            const successMessage = document.getElementById('successMessage');
+            
+            // ========================================
+            // COOKIE FUNCTIONS
+            // ========================================
+            
+            // Set cookie
+            function setCookie(name, value, days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                const expires = "expires=" + date.toUTCString();
+                document.cookie = name + "=" + value + ";" + expires + ";path=/";
+            }
+            
+            // Get cookie
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+            
+            // ========================================
+            // SHOW POPUP AFTER DELAY
+            // ========================================
+            function showPopup() {
+                // Check if popup was already shown (cookie exists)
+                if (getCookie(COOKIE_NAME)) {
+                    console.log('Popup already shown recently. Skipping...');
+                    return;
+                }
+                
+                // Show popup with animation
+                popup.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                
+                // Focus on email input for accessibility
+                setTimeout(() => {
+                    emailInput.focus();
+                }, 400);
+            }
+            
+            // Set timeout to show popup after specified delay
+            setTimeout(showPopup, POPUP_DELAY);
+            
+            // ========================================
+            // CLOSE POPUP
+            // ========================================
+            function closePopup() {
+                popup.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+                
+                // Set cookie to prevent popup from showing again
+                setCookie(COOKIE_NAME, 'true', COOKIE_DAYS);
+            }
+            
+            // Close button click
+            closeButton.addEventListener('click', closePopup);
+            
+            // Close on overlay click (outside popup)
+            popup.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    closePopup();
+                }
+            });
+            
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && popup.classList.contains('active')) {
+                    closePopup();
+                }
+            });
+            
+            // ========================================
+            // EMAIL VALIDATION
+            // ========================================
+            function validateEmail(email) {
+                // Regular expression for email validation
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(String(email).toLowerCase());
+            }
+            
+            function showError(message) {
+                emailInput.classList.add('error');
+                errorMessage.textContent = message;
+                errorMessage.classList.add('show');
+            }
+            
+            function clearError() {
+                emailInput.classList.remove('error');
+                errorMessage.classList.remove('show');
+            }
+            
+            // Clear error on input
+            emailInput.addEventListener('input', clearError);
+            
+            // ========================================
+            // FORM SUBMISSION
+            // ========================================
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get email value
+                const email = emailInput.value.trim();
+                
+                // Validate email
+                if (!email) {
+                    showError('Please enter your email address');
+                    return;
+                }
+                
+                if (!validateEmail(email)) {
+                    showError('Please enter a valid email address');
+                    return;
+                }
+                
+                // Clear any previous errors
+                clearError();
+                
+                // Show loading state
+                submitButton.classList.add('loading');
+                submitButton.disabled = true;
+                
+                // Submit to Mailchimp
+                // Using AJAX to avoid page redirect
+                const formData = new FormData(form);
+                const actionUrl = form.getAttribute('action');
+                
+                // Convert action URL to JSONP format for cross-origin requests
+                const jsonpUrl = actionUrl.replace('/post?', '/post-json?') + '&c=?';
+                
+                // Make JSONP request to Mailchimp
+                const script = document.createElement('script');
+                const callbackName = 'mailchimpCallback_' + Date.now();
+                
+                window[callbackName] = function(data) {
+                    // Remove loading state
+                    submitButton.classList.remove('loading');
+                    submitButton.disabled = false;
+                    
+                    // Check response
+                    if (data.result === 'success') {
+                        // Show success message
+                        formSection.style.display = 'none';
+                        successMessage.classList.add('show');
+                        
+                        // Auto-close popup after 5 seconds
+                        setTimeout(closePopup, 5000);
+                    } else {
+                        // Show error message
+                        let errorMsg = 'An error occurred. Please try again.';
+                        if (data.msg) {
+                            errorMsg = data.msg.replace(/^\d+ - /, ''); // Remove error code
+                        }
+                        showError(errorMsg);
+                    }
+                    
+                    // Cleanup
+                    document.head.removeChild(script);
+                    delete window[callbackName];
+                };
+                
+                // Build URL with form data
+                let url = jsonpUrl + '&EMAIL=' + encodeURIComponent(email) + '&callback=' + callbackName;
+                script.src = url;
+                document.head.appendChild(script);
+            });
+            
+            // ========================================
+            // KEYBOARD ACCESSIBILITY
+            // ========================================
+            
+            // Trap focus inside popup when active
+            const focusableElements = popup.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+            
+            popup.addEventListener('keydown', function(e) {
+                if (!popup.classList.contains('active')) return;
+                
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        // Shift + Tab
+                        if (document.activeElement === firstFocusable) {
+                            e.preventDefault();
+                            lastFocusable.focus();
+                        }
+                    } else {
+                        // Tab
+                        if (document.activeElement === lastFocusable) {
+                            e.preventDefault();
+                            firstFocusable.focus();
+                        }
+                    }
+                }
+            });
+            
+        });
