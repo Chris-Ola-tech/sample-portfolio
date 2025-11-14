@@ -1104,32 +1104,59 @@
 
 
 
-        const toggleBtn = document.getElementById('toggleBtnn');
-        const teamGrid = document.getElementById('teamGrid');
-        let isExpanded = false;
+        // Toggle for Team section
+const toggleBtn = document.getElementById('toggleBtnn');
+const teamGrid = document.getElementById('teamGrid');
+let isTeamExpanded = false;
 
-        toggleBtn.addEventListener('click', function() {
-            isExpanded = !isExpanded;
+if (toggleBtn && teamGrid) {
+    toggleBtn.addEventListener('click', function() {
+        isTeamExpanded = !isTeamExpanded;
+        
+        if (isTeamExpanded) {
+            teamGrid.classList.add('team-expanded');
+            toggleBtn.textContent = 'See Less';
             
-            if (isExpanded) {
-                teamGrid.classList.add('team-expanded');
-                toggleBtn.textContent = 'See Less';
-                
-                // Smooth scroll to show new content
-                setTimeout(() => {
-                    const firstHiddenCard = document.querySelector('.olawale-about-team-member-profile-box:nth-child(4)');
-                    if (firstHiddenCard) {
-                        firstHiddenCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    }
-                }, 100);
-            } else {
-                teamGrid.classList.remove('team-expanded');
-                toggleBtn.textContent = 'See More';
-                
-                // Scroll back to top of team section
-                document.querySelector('.olawale-about-team-showcase-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
+            setTimeout(() => {
+                const firstHiddenCard = teamGrid.querySelector('.olawale-about-team-member-profile-box:nth-child(4)');
+                if (firstHiddenCard) {
+                    firstHiddenCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }, 100);
+        } else {
+            teamGrid.classList.remove('team-expanded');
+            toggleBtn.textContent = 'See More';
+            teamGrid.closest('.olawale-about-team-showcase-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+}
+
+// Toggle for Patrons section
+const togglePatronsBtn = document.getElementById('togglePatronsBtn');
+const patronsGrid = document.getElementById('patronsGrid');
+let isPatronsExpanded = false;
+
+if (togglePatronsBtn && patronsGrid) {
+    togglePatronsBtn.addEventListener('click', function() {
+        isPatronsExpanded = !isPatronsExpanded;
+        
+        if (isPatronsExpanded) {
+            patronsGrid.classList.add('team-expanded');
+            togglePatronsBtn.textContent = 'See Less';
+            
+            setTimeout(() => {
+                const firstHiddenCard = patronsGrid.querySelector('.olawale-about-team-member-profile-box:nth-child(4)');
+                if (firstHiddenCard) {
+                    firstHiddenCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }, 100);
+        } else {
+            patronsGrid.classList.remove('team-expanded');
+            togglePatronsBtn.textContent = 'See More';
+            patronsGrid.closest('.olawale-about-team-showcase-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+}
 
 
 
