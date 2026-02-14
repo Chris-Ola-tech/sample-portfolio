@@ -3988,3 +3988,573 @@
         .hero-cta:hover i {
             transform: translateY(3px);
         }
+
+
+
+
+
+
+
+
+
+
+        .zreg-container-main-wrapper {
+  width: 100%;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Content Limiter */
+.zreg-content-limiter {
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: zregFadeInUp 0.8s ease-out;
+}
+
+/* Section Header */
+.zreg-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.zreg-main-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0A2342;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.zreg-sub-description {
+  font-size: 1.1rem;
+  color: #6c757d;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Main Layout Grid - NOW VERTICAL STACK */
+.zreg-layout-grid {
+  display: flex; /* ← CHANGED: From grid to flex for vertical stacking */
+  flex-direction: column; /* ← CHANGED: Stack vertically */
+  gap: 50px;
+  align-items: center;
+}
+
+/* Flyer Column - NOW FULL WIDTH */
+.zreg-flyer-column {
+  width: 100%; /* ← CHANGED: Full width */
+  max-width: 1200px; /* ← CHANGED: Generous max-width */
+  animation: zregSlideInLeft 0.8s ease-out;
+}
+
+.zreg-image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(10, 35, 66, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 100%; /* ← CHANGED: Ensure full width */
+}
+
+.zreg-image-wrapper:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 70px rgba(10, 35, 66, 0.25);
+}
+
+.zreg-flyer-image {
+  width: 100%; /* ← CHANGED: Full width */
+  height: auto; /* ← CHANGED: Auto height to maintain aspect ratio */
+  display: block;
+  object-fit: contain; /* ← CHANGED: From 'cover' to 'contain' - shows full image naturally */
+  min-height: unset; /* ← CHANGED: Remove min-height restriction */
+}
+
+.zreg-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(10, 35, 66, 0.95), transparent);
+  padding: 40px 30px;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.zreg-image-wrapper:hover .zreg-image-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.zreg-overlay-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.zreg-overlay-text {
+  font-size: 1rem;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+/* Form Column - NOW CENTERED */
+.zreg-form-column {
+  width: 100%; /* ← CHANGED: Full width */
+  max-width: 700px; /* ← CHANGED: Reasonable form width */
+  animation: zregSlideInRight 0.8s ease-out;
+}
+
+.zreg-form-wrapper {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(10, 35, 66, 0.1);
+  border: 1px solid rgba(10, 35, 66, 0.05);
+}
+
+.zreg-form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0A2342;
+  margin-bottom: 8px;
+}
+
+.zreg-form-subtitle {
+  font-size: 0.95rem;
+  color: #6c757d;
+  margin-bottom: 30px;
+}
+
+/* Form Elements */
+.zreg-form-element {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.zreg-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zreg-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0A2342;
+  letter-spacing: 0.3px;
+}
+
+.zreg-required {
+  color: #dc3545;
+}
+
+.zreg-input-field,
+.zreg-select-field {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background: #fafafa;
+  color: #0A2342;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.zreg-input-field:focus,
+.zreg-select-field:focus {
+  outline: none;
+  border-color: #F9A826;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(249, 168, 38, 0.1);
+}
+
+.zreg-input-field::placeholder {
+  color: #adb5bd;
+}
+
+.zreg-select-field {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230A2342' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  padding-right: 45px;
+}
+
+/* Error Messages */
+.zreg-error-msg {
+  font-size: 0.85rem;
+  color: #dc3545;
+  min-height: 20px;
+  display: block;
+}
+
+/* Submit Button */
+.zreg-submit-btn {
+  width: 100%;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #F9A826 0%, #ffb84d 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(249, 168, 38, 0.3);
+  margin-top: 16px;
+}
+
+.zreg-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(249, 168, 38, 0.4);
+  background: linear-gradient(135deg, #ffb84d 0%, #F9A826 100%);
+}
+
+.zreg-submit-btn:active {
+  transform: translateY(0);
+}
+
+.zreg-btn-icon {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.zreg-submit-btn:hover .zreg-btn-icon {
+  transform: translateX(4px);
+}
+
+/* Animations */
+@keyframes zregFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zregSlideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zregSlideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design - Tablet */
+@media (max-width: 968px) {
+  .zreg-flyer-column {
+    max-width: 100%; /* ← CHANGED: Full width on tablet */
+  }
+
+  .zreg-form-column {
+    max-width: 600px; /* ← CHANGED: Slightly narrower form on tablet */
+  }
+
+  .zreg-main-heading {
+    font-size: 2rem;
+  }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 640px) {
+  .zreg-container-main-wrapper {
+    padding: 60px 16px;
+  }
+
+  .zreg-section-header {
+    margin-bottom: 40px;
+  }
+
+  .zreg-main-heading {
+    font-size: 1.75rem;
+  }
+
+  .zreg-sub-description {
+    font-size: 1rem;
+  }
+
+  .zreg-form-wrapper {
+    padding: 30px 24px;
+  }
+
+  .zreg-form-title {
+    font-size: 1.6rem;
+  }
+
+  .zreg-overlay-title {
+    font-size: 1.4rem;
+  }
+
+  .zreg-overlay-text {
+    font-size: 0.9rem;
+  }
+
+  .zreg-submit-btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+  
+  .zreg-layout-grid {
+    gap: 40px; /* ← CHANGED: Smaller gap on mobile */
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Info Content Block Styles */
+.zreg-info-content-block {
+  background: #ffffff;
+  padding: 60px 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(10, 35, 66, 0.08);
+  margin-bottom: 50px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.zreg-info-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 3px solid #F9A826;
+}
+
+.zreg-info-main-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #0A2342;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.zreg-info-tagline {
+  font-size: 1.3rem;
+  color: #F9A826;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.zreg-info-subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.zreg-info-section {
+  margin-bottom: 40px;
+}
+
+.zreg-info-section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0A2342;
+  margin-bottom: 16px;
+  border-left: 5px solid #F9A826;
+  padding-left: 20px;
+}
+
+.zreg-info-text {
+  font-size: 1.05rem;
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.zreg-pillars-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.zreg-pillar-item {
+  padding: 18px 24px;
+  background: #f8f9fa;
+  border-left: 4px solid #F9A826;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  color: #2d3748;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+.zreg-pillar-item:hover {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(10, 35, 66, 0.1);
+  transform: translateX(8px);
+}
+
+.zreg-pillar-item strong {
+  color: #0A2342;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.zreg-benefits-detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.zreg-benefit-detail-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 1.05rem;
+  color: #4a5568;
+  line-height: 1.7;
+}
+
+.zreg-benefit-detail-item:last-child {
+  border-bottom: none;
+}
+
+.zreg-benefit-icon {
+  color: #F9A826;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.zreg-benefit-detail-item strong {
+  color: #0A2342;
+}
+
+.zreg-program-details {
+  background: linear-gradient(135deg, #0A2342 0%, #163a5f 100%);
+  padding: 30px;
+  border-radius: 12px;
+  margin-top: 16px;
+}
+
+.zreg-program-details .zreg-info-text {
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.zreg-program-details strong {
+  color: #F9A826;
+}
+
+.zreg-enrollment-steps {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.zreg-enrollment-steps li {
+  padding: 16px 24px;
+  background: #f0f9ff;
+  border-left: 4px solid #0A2342;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+.zreg-enrollment-steps strong {
+  color: #0A2342;
+}
+
+.zreg-contact-section {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.zreg-quote-section {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.zreg-closing-quote {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #0A2342;
+  line-height: 1.8;
+  padding: 30px;
+  background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+  border-left: 6px solid #F9A826;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.zreg-quote-author {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #F9A826;
+  font-style: normal;
+}
+
+/* Responsive for Info Section */
+@media (max-width: 768px) {
+  .zreg-info-content-block {
+    padding: 40px 30px;
+  }
+
+  .zreg-info-main-title {
+    font-size: 2rem;
+  }
+
+  .zreg-info-section-title {
+    font-size: 1.5rem;
+  }
+
+  .zreg-closing-quote {
+    font-size: 1.1rem;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .zreg-info-content-block {
+    padding: 30px 20px;
+  }
+
+  .zreg-info-main-title {
+    font-size: 1.6rem;
+  }
+
+  .zreg-info-tagline {
+    font-size: 1.1rem;
+  }
+}

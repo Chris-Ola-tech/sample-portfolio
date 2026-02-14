@@ -1164,3 +1164,275 @@ if (togglePatronsBtn && patronsGrid) {
 
 
         
+(function() {
+  'use strict';
+
+  // Configuration
+  const CONFIG = {
+    whatsappNumber: '2330540336116', // Replace with your WhatsApp number (country code + number, no + or spaces)
+    whatsappAPI: 'https://wa.me/'
+  };
+
+  // Get form elements
+  const form = document.getElementById('zregFormMainElement');
+  const fullNameInput = document.getElementById('zregFullNameInput');
+  const phoneInput = document.getElementById('zregPhoneInput');
+  const emailInput = document.getElementById('zregEmailInput');
+  const courseInput = document.getElementById('zregCourseInput');
+  const stateSelect = document.getElementById('zregStateSelect');
+  const submitButton = document.getElementById('zregSubmitButton');
+
+  // Get error message elements
+  const fullNameError = document.getElementById('zregFullNameError');
+  const phoneError = document.getElementById('zregPhoneError');
+  const emailError = document.getElementById('zregEmailError');
+  const courseError = document.getElementById('zregCourseError');
+  const stateError = document.getElementById('zregStateError');
+
+  /**
+   * Validation Functions
+   */
+  
+  // Validate full name (at least 2 words)
+  function validateFullName(name) {
+    const trimmedName = name.trim();
+    if (trimmedName.length === 0) {
+      return { valid: false, message: 'Please enter your full name' };
+    }
+    if (trimmedName.split(' ').filter(word => word.length > 0).length < 2) {
+      return { valid: false, message: 'Please enter your full name (first and last name)' };
+    }
+    return { valid: true, message: '' };
+  }
+
+  // Validate phone number (basic Ghana format)
+  function validatePhone(phone) {
+    const trimmedPhone = phone.trim();
+    if (trimmedPhone.length === 0) {
+      return { valid: false, message: 'Please enter your phone number' };
+    }
+    // Ghana phone numbers typically start with 0 and are 10 digits
+    const phoneRegex = /^0\d{9}$/;
+    if (!phoneRegex.test(trimmedPhone)) {
+      return { valid: false, message: 'Please enter a valid phone number (e.g., 0244123456)' };
+    }
+    return { valid: true, message: '' };
+  }
+
+  // Validate email
+  function validateEmail(email) {
+    const trimmedEmail = email.trim();
+    if (trimmedEmail.length === 0) {
+      return { valid: false, message: 'Please enter your email address' };
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      return { valid: false, message: 'Please enter a valid email address' };
+    }
+    return { valid: true, message: '' };
+  }
+
+  // Validate course/interest
+  function validateCourse(course) {
+    const trimmedCourse = course.trim();
+    if (trimmedCourse.length === 0) {
+      return { valid: false, message: 'Please enter your course or area of interest' };
+    }
+    if (trimmedCourse.length < 3) {
+      return { valid: false, message: 'Please enter at least 3 characters' };
+    }
+    return { valid: true, message: '' };
+  }
+
+  // Validate state selection
+  function validateState(state) {
+    if (!state || state === '') {
+      return { valid: false, message: 'Please select your region' };
+    }
+    return { valid: true, message: '' };
+  }
+
+  /**
+   * Display error message
+   */
+  function showError(errorElement, message) {
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+  }
+
+  /**
+   * Clear error message
+   */
+  function clearError(errorElement) {
+    errorElement.textContent = '';
+    errorElement.style.display = 'none';
+  }
+
+  /**
+   * Real-time validation on input blur
+   */
+  fullNameInput.addEventListener('blur', function() {
+    const validation = validateFullName(this.value);
+    if (!validation.valid) {
+      showError(fullNameError, validation.message);
+    } else {
+      clearError(fullNameError);
+    }
+  });
+
+  phoneInput.addEventListener('blur', function() {
+    const validation = validatePhone(this.value);
+    if (!validation.valid) {
+      showError(phoneError, validation.message);
+    } else {
+      clearError(phoneError);
+    }
+  });
+
+  emailInput.addEventListener('blur', function() {
+    const validation = validateEmail(this.value);
+    if (!validation.valid) {
+      showError(emailError, validation.message);
+    } else {
+      clearError(emailError);
+    }
+  });
+
+  courseInput.addEventListener('blur', function() {
+    const validation = validateCourse(this.value);
+    if (!validation.valid) {
+      showError(courseError, validation.message);
+    } else {
+      clearError(courseError);
+    }
+  });
+
+  stateSelect.addEventListener('change', function() {
+    const validation = validateState(this.value);
+    if (!validation.valid) {
+      showError(stateError, validation.message);
+    } else {
+      clearError(stateError);
+    }
+  });
+
+  /**
+   * Format WhatsApp message
+   */
+  function formatWhatsAppMessage(formData) {
+    const message = `*New Registration Request*
+
+*Full Name:* ${formData.fullName}
+*Phone Number:* ${formData.phone}
+*Email:* ${formData.email}
+*Course/Interest:* ${formData.course}
+*Region:* ${formData.state}
+
+_Sent from website registration form_`;
+    
+    return encodeURIComponent(message);
+  }
+
+  /**
+   * Handle form submission
+   */
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Clear all previous errors
+    clearError(fullNameError);
+    clearError(phoneError);
+    clearError(emailError);
+    clearError(courseError);
+    clearError(stateError);
+
+    // Get form values
+    const fullName = fullNameInput.value;
+    const phone = phoneInput.value;
+    const email = emailInput.value;
+    const course = courseInput.value;
+    const state = stateSelect.value;
+
+    // Validate all fields
+    const validations = {
+      fullName: validateFullName(fullName),
+      phone: validatePhone(phone),
+      email: validateEmail(email),
+      course: validateCourse(course),
+      state: validateState(state)
+    };
+
+    // Check if all validations passed
+    let isValid = true;
+
+    if (!validations.fullName.valid) {
+      showError(fullNameError, validations.fullName.message);
+      isValid = false;
+    }
+
+    if (!validations.phone.valid) {
+      showError(phoneError, validations.phone.message);
+      isValid = false;
+    }
+
+    if (!validations.email.valid) {
+      showError(emailError, validations.email.message);
+      isValid = false;
+    }
+
+    if (!validations.course.valid) {
+      showError(courseError, validations.course.message);
+      isValid = false;
+    }
+
+    if (!validations.state.valid) {
+      showError(stateError, validations.state.message);
+      isValid = false;
+    }
+
+    // If validation fails, scroll to first error and stop
+    if (!isValid) {
+      const firstError = form.querySelector('.zreg-error-msg:not(:empty)');
+      if (firstError) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
+    // Prepare form data
+    const formData = {
+      fullName: fullName.trim(),
+      phone: phone.trim(),
+      email: email.trim(),
+      course: course.trim(),
+      state: state
+    };
+
+    // Format WhatsApp message
+    const whatsappMessage = formatWhatsAppMessage(formData);
+
+    // Build WhatsApp URL
+    const whatsappURL = `${CONFIG.whatsappAPI}${CONFIG.whatsappNumber}?text=${whatsappMessage}`;
+
+    // Change button text to indicate processing
+    const originalButtonText = submitButton.innerHTML;
+    submitButton.innerHTML = '<span class="zreg-btn-text">Opening WhatsApp...</span>';
+    submitButton.disabled = true;
+
+    // Open WhatsApp in new tab
+    window.open(whatsappURL, '_blank');
+
+    // Reset button after 2 seconds
+    setTimeout(function() {
+      submitButton.innerHTML = originalButtonText;
+      submitButton.disabled = false;
+
+      // Optional: Reset form after successful submission
+      // form.reset();
+      
+      // Show success message (optional)
+      alert('Thank you! Please complete your registration by sending the message in WhatsApp.');
+    }, 2000);
+  });
+
+})();
