@@ -1212,9 +1212,9 @@ if (togglePatronsBtn && patronsGrid) {
       return { valid: false, message: 'Please enter your phone number' };
     }
     // Ghana phone numbers typically start with 0 and are 10 digits
-    const phoneRegex = /^0\d{9}$/;
+    const phoneRegex = /^233\d{10}$/;
     if (!phoneRegex.test(trimmedPhone)) {
-      return { valid: false, message: 'Please enter a valid phone number (e.g., 0244123456)' };
+      return { valid: false, message: 'Please enter a valid phone number (e.g., 233244123456)' };
     }
     return { valid: true, message: '' };
   }
