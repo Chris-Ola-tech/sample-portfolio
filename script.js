@@ -1436,3 +1436,179 @@ _Sent from website registration form_`;
   });
 
 })();
+
+
+
+
+(function() {
+  'use strict';
+
+  // Configuration
+  const XBOOK_CONFIG = {
+    mobileBreakpoint: 767, // Screen width below which mobile logic applies
+    visibleBooksOnMobile: 8, // Number of books to show initially on mobile
+  };
+
+  // Get DOM elements
+  const galleryGrid = document.getElementById('xbookGalleryGridElement');
+  const actionZone = document.getElementById('xbookActionButtonZone');
+  const seeMoreBtn = document.getElementById('xbookSeeMoreButton');
+
+  // State
+  let isMobileView = false;
+  let isExpanded = false;
+
+  /**
+   * Check if current viewport is mobile
+   */
+  function checkIfMobile() {
+    return window.innerWidth <= XBOOK_CONFIG.mobileBreakpoint;
+  }
+
+  /**
+   * Initialize the gallery based on screen size
+   */
+  function initializeGallery() {
+    isMobileView = checkIfMobile();
+
+    if (isMobileView) {
+      setupMobileView();
+    } else {
+      setupDesktopView();
+    }
+  }
+
+  /**
+   * Setup mobile view - hide books after the visible limit
+   */
+  function setupMobileView() {
+    const bookCards = galleryGrid.querySelectorAll('.xbook-gallery-item-card');
+    
+    // Hide books beyond the visible limit
+    bookCards.forEach(function(card, index) {
+      if (index >= XBOOK_CONFIG.visibleBooksOnMobile) {
+        card.classList.add('xbook-gallery-item-hidden');
+      } else {
+        card.classList.remove('xbook-gallery-item-hidden');
+        card.style.display = 'block';
+      }
+    });
+
+    // Show the "See More" button only if there are hidden books
+    const hiddenBooks = galleryGrid.querySelectorAll('.xbook-gallery-item-hidden');
+    if (hiddenBooks.length > 0) {
+      actionZone.style.display = 'block';
+    } else {
+      actionZone.style.display = 'none';
+    }
+
+    // Reset button state
+    isExpanded = false;
+    updateButtonText();
+  }
+
+  /**
+   * Setup desktop view - show all books
+   */
+  function setupDesktopView() {
+    const bookCards = galleryGrid.querySelectorAll('.xbook-gallery-item-card');
+    
+    // Show all books
+    bookCards.forEach(function(card) {
+      card.classList.remove('xbook-gallery-item-hidden');
+      card.style.display = 'block';
+    });
+
+    // Hide the "See More" button on desktop
+    actionZone.style.display = 'none';
+  }
+
+  /**
+   * Toggle book visibility on mobile
+   */
+  function toggleBookVisibility() {
+    const hiddenBooks = galleryGrid.querySelectorAll('.xbook-gallery-item-hidden');
+
+    if (!isExpanded) {
+      // Expand: Show all hidden books with animation
+      hiddenBooks.forEach(function(card, index) {
+        setTimeout(function() {
+          card.classList.remove('xbook-gallery-item-hidden');
+          card.style.display = 'block';
+          card.classList.add('xbook-gallery-item-reveal');
+          
+          // Remove animation class after animation completes
+          setTimeout(function() {
+            card.classList.remove('xbook-gallery-item-reveal');
+          }, 500);
+        }, index * 50); // Stagger animation
+      });
+
+      isExpanded = true;
+      updateButtonText();
+
+    } else {
+      // Collapse: Hide books beyond the visible limit
+      const bookCards = galleryGrid.querySelectorAll('.xbook-gallery-item-card');
+      
+      bookCards.forEach(function(card, index) {
+        if (index >= XBOOK_CONFIG.visibleBooksOnMobile) {
+          card.classList.add('xbook-gallery-item-hidden');
+          setTimeout(function() {
+            card.style.display = 'none';
+          }, 300);
+        }
+      });
+
+      isExpanded = false;
+      updateButtonText();
+
+      // Scroll back to top of gallery
+      galleryGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  /**
+   * Update button text based on expanded state
+   */
+  function updateButtonText() {
+    const btnText = seeMoreBtn.querySelector('.xbook-btn-text');
+    const btnIcon = seeMoreBtn.querySelector('.xbook-btn-icon-arrow');
+
+    if (isExpanded) {
+      btnText.textContent = 'Show Less';
+      btnIcon.textContent = '↑';
+    } else {
+      btnText.textContent = 'See More Books';
+      btnIcon.textContent = '↓';
+    }
+  }
+
+  /**
+   * Handle window resize
+   */
+  function handleResize() {
+    const currentIsMobile = checkIfMobile();
+
+    // Only reinitialize if view type has changed
+    if (currentIsMobile !== isMobileView) {
+      initializeGallery();
+    }
+  }
+
+  // Event Listeners
+  if (seeMoreBtn) {
+    seeMoreBtn.addEventListener('click', toggleBookVisibility);
+  }
+
+  // Debounce resize event for performance
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(handleResize, 200);
+  });
+
+  // Initialize on page load
+  initializeGallery();
+
+})();

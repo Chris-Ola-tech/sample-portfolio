@@ -4558,3 +4558,246 @@
     font-size: 1.1rem;
   }
 }
+
+
+
+
+
+
+
+.xbook-gallery-main-container {
+  width: 100%;
+  padding: 80px 20px;
+  background: #ffffff;
+  position: relative;
+}
+
+/* Content Wrapper */
+.xbook-gallery-content-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Section Header */
+.xbook-gallery-header-zone {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.xbook-gallery-primary-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0A2342;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.xbook-gallery-subtitle-desc {
+  font-size: 1.1rem;
+  color: #6c757d;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Books Grid Layout */
+.xbook-gallery-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Individual Book Card */
+.xbook-gallery-item-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f8f9fa;
+  box-shadow: 0 4px 12px rgba(10, 35, 66, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.xbook-gallery-item-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(10, 35, 66, 0.15);
+}
+
+/* Image Holder */
+.xbook-gallery-image-holder {
+  position: relative;
+  width: 100%;
+  padding-bottom: 140%; /* 1:1.4 aspect ratio for book covers */
+  overflow: hidden;
+}
+
+/* Book Cover Image */
+.xbook-gallery-cover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.xbook-gallery-item-card:hover .xbook-gallery-cover-image {
+  transform: scale(1.08);
+}
+
+/* Hover Overlay */
+.xbook-gallery-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(10, 35, 66, 0.7) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.xbook-gallery-item-card:hover .xbook-gallery-hover-overlay {
+  opacity: 1;
+}
+
+/* Action Zone for Button */
+.xbook-gallery-action-zone {
+  text-align: center;
+  margin-top: 40px;
+  display: none; /* Hidden by default, shown on mobile via JS */
+}
+
+/* See More Button */
+.xbook-gallery-see-more-btn {
+  padding: 16px 40px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #F9A826 0%, #ffb84d 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(249, 168, 38, 0.3);
+  font-family: inherit;
+}
+
+.xbook-gallery-see-more-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(249, 168, 38, 0.4);
+  background: linear-gradient(135deg, #ffb84d 0%, #F9A826 100%);
+}
+
+.xbook-gallery-see-more-btn:active {
+  transform: translateY(-1px);
+}
+
+.xbook-btn-icon-arrow {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.xbook-gallery-see-more-btn:hover .xbook-btn-icon-arrow {
+  transform: translateY(4px);
+}
+
+/* Hidden State for Books (Mobile Only) */
+.xbook-gallery-item-hidden {
+  display: none;
+  opacity: 0;
+}
+
+/* Animation for Revealing Books */
+.xbook-gallery-item-reveal {
+  animation: xbookFadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes xbookFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Large Desktops */
+@media (min-width: 1400px) {
+  .xbook-gallery-grid-layout {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .xbook-gallery-grid-layout {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .xbook-gallery-main-container {
+    padding: 70px 20px;
+  }
+
+  .xbook-gallery-grid-layout {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .xbook-gallery-primary-heading {
+    font-size: 2.2rem;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 767px) {
+  .xbook-gallery-main-container {
+    padding: 60px 16px;
+  }
+
+  .xbook-gallery-header-zone {
+    margin-bottom: 40px;
+  }
+
+  .xbook-gallery-primary-heading {
+    font-size: 2rem;
+  }
+
+  .xbook-gallery-subtitle-desc {
+    font-size: 1rem;
+  }
+
+  .xbook-gallery-grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* Show the "See More" button on mobile */
+  .xbook-gallery-action-zone {
+    display: block;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .xbook-gallery-grid-layout {
+    gap: 16px;
+  }
+
+  .xbook-gallery-see-more-btn {
+    padding: 14px 32px;
+    font-size: 0.95rem;
+  }
+}
